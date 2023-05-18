@@ -3,7 +3,7 @@ import imutils
 import cv2
 import copy
 
-lower = {'matang':(0, 50, 20), 'mentah':(30, 100, 100), 'setengah matang':(20, 100, 100)} 
+lower = {'matang':(0, 50, 20), 'mentah':(30, 100, 100), 'setengah matang':(10, 100, 100)} 
 upper = {'matang':(10,255,255), 'mentah':(80,255,255), 'setengah matang':(60,255,255)}
 colors = {'matang':(0,0,255), 'mentah':(0,255,0), 'setengah matang':(0,140,255)}
 target_width = 400
@@ -11,7 +11,7 @@ target_height = 400
 largest_item = {}
 
 # Started
-image = cv2.imread("../imgs/tmt-mentah-1.jpg", cv2.IMREAD_COLOR)
+image = cv2.imread("../imgs/tmt-setengah-2.jpg", cv2.IMREAD_COLOR)
 
 # melakukan normalisasi
 image = cv2.normalize(image, None, 0, 255, cv2.NORM_MINMAX)
@@ -19,7 +19,15 @@ image = cv2.normalize(image, None, 0, 255, cv2.NORM_MINMAX)
 image = cv2.resize(image, (target_width, target_height))
 img_height, img_width, _ = image.shape
 blurred = cv2.GaussianBlur(image, (11, 11), 0)
-hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
+# Buat kernel sharpening
+kernel = np.array([[-1, -1, -1],
+                   [-1,  9, -1],
+                   [-1, -1, -1]])
+
+# Lakukan konvolusi dengan kernel
+sharpened_image = cv2.filter2D(blurred, -1, kernel)
+
+hsv = cv2.cvtColor(sharpened_image, cv2.COLOR_BGR2HSV)
 
 # lingkaran sesuai warna
 for key_color, value in upper.items():  
