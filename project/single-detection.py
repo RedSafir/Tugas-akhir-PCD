@@ -136,5 +136,3 @@ axs[1].set_title('Gambar 2')
 
 plt.tight_layout()
 plt.show()
-
-cv2.
