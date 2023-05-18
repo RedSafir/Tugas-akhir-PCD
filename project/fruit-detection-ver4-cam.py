@@ -3,9 +3,9 @@ import imutils
 import cv2
 import copy
 
-lower = {'red':(166, 84, 141), 'green':(40, 50, 80), 'orange':(0, 50, 80)} 
-upper = {'red':(186,255,255), 'green':(70,255,255), 'orange':(20,255,255)}
-colors = {'red':(0,0,255), 'green':(0,255,0), 'orange':(0,140,255)}
+lower = {'matang':(0, 50, 20), 'mentah':(30, 100, 100), 'setengah matang':(20, 100, 100)} 
+upper = {'matang':(10,255,255), 'mentah':(80,255,255), 'setengah matang':(60,255,255)}
+colors = {'matang':(0,0,255), 'mentah':(0,255,0), 'setengah matang':(0,140,255)}
 largest_item = {}
 
 # Started
@@ -26,15 +26,12 @@ while True :
         # melakukan pre processing closing
         mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 
-        if key_color == "red" :
-            cv2.imshow("red", mask)
-            text = "Matang"
-        elif key_color == "green":
-            cv2.imshow("green", mask)
-            text = "Mentah"
-        elif key_color == "orange":
-            cv2.imshow("orange", mask)
-            text = "Matang"
+        if key_color == "matang" :
+            cv2.imshow("matang", mask)
+        elif key_color == "mentah":
+            cv2.imshow("mentah", mask)
+        elif key_color == "setengah matang":
+            cv2.imshow("setengah matang", mask)
 
         # mencari conture
         cnts, _ = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -52,12 +49,13 @@ while True :
         cX = int(M["m10"] / M["m00"])
         cY = int(M["m01"] / M["m00"])
 
-        if largest_contour == "red" :
-            text = "Matang"
-        elif largest_contour == "green":
-            text = "Mentah"
-        elif largest_contour == "orange":
-            text = "Matang"
+        # text berdasarkan key yang di dapat
+        if largest_contour == "matang" :
+            text = "matang"
+        elif largest_contour == "mentah":
+            text = "mentah"
+        elif largest_contour == "setengah matang":
+            text = "setengah matang"
 
         (text_width, text_height), _ = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1, 2)
         text_x = cX - text_width // 2
