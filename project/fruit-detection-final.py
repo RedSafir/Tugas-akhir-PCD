@@ -8,8 +8,8 @@ import copy
 INISIASI VARIABLE
 
 """
-lower = {'matang':(0, 50, 20), 'mentah':(30, 100, 100), 'setengah matang':(10, 100, 100)} 
-upper = {'matang':(10,255,255), 'mentah':(80,255,255), 'setengah matang':(60,255,255)}
+lower = {'matang':(0, 70, 30), 'mentah':(30, 120, 30), 'setengah matang':(10, 70, 30)} 
+upper = {'matang':(30,255,255), 'mentah':(40,255,255), 'setengah matang':(30,255,255)}
 colors = {'matang':(0,0,255), 'mentah':(0,255,0), 'setengah matang':(0,140,255)}
 target_width = 400
 target_height = 400
@@ -33,34 +33,33 @@ def normalisasiCitra(image):
 
     return normalized_image
 
+# proses Convolusi
 def math_konvolusi(arrycitra, arrykarnel):
-        # baca ukuran dimensi citra
-        H_citra = arrycitra.shape[0]
-        W_citra = arrycitra.shape[1]
+    # baca ukuran dimensi citra
+    H_citra, W_citra = arrycitra.shape
 
-        # baca ukuran dimensi karnel
-        H_karnel = arrykarnel.shape[0]
-        W_karnel = arrykarnel.shape[1]
+    # baca ukuran dimensi karnel
+    H_karnel, W_karnel = arrykarnel.shape
 
-        # meenutukan titik tengah
-        H = H_karnel // 2
-        W = W_karnel // 2   
+    # meenutukan titik tengah
+    H = H_karnel // 2
+    W = W_karnel // 2   
 
-        out = np.zeros((H_citra, W_citra))
+    out = np.zeros((H_citra, W_citra))
 
-        # menggeser karnel konvolusi
-        for i in range(H + 1, H_citra - H):
-            for j in range(W + 1, W_citra - W):
-                sum = 0
-                for k in range(-H, H):
-                    for l in range(-W, W):
-                        citra_value = arrycitra[i + k, j + l]
-                        kernel_value = arrykarnel[H + k, W + l]
-                        sum += citra_value * kernel_value
-            out[i, j] = copy.copy(sum)
-        
-        return out
-
+    # menggeser karnel konvolusi
+    for i in range(H + 1, H_citra - H):
+        for j in range(W + 1, W_citra - W):
+            sum = 0
+            for k in range(-H, H):
+                for l in range(-W, W):
+                    citra_value = arrycitra[i + k, j + l]
+                    kernel_value = arrykarnel[H + k, W + l]
+                    sum += citra_value * kernel_value
+                out[i, j] = copy.copy(sum)
+    
+    return out
+    
 def gaussianfilter(image):   
     # buat kernel
     KERNEL = (1.0 / 345) * np.array([   [1, 5, 7, 5, 1],
@@ -70,7 +69,7 @@ def gaussianfilter(image):
                                         [1, 5, 7, 5, 1]])
     
     # lakukan konvolusi dengan karnel dan image yang sudah di buat grey
-    hasil = cv2.filter2D(image, -1, KERNEL)
+    hasil = cv2.filter2D(image, -1,  KERNEL)
 
     return hasil
 
@@ -156,8 +155,8 @@ dan mempersiapkan citra untuk tahap selanjutnya dalam alur pengolahan citra.
 """
 
 # Started
-image = cv2.imread("../imgs/tmt-setengah-1.jpg", cv2.IMREAD_COLOR)
-# lakukan normalisasi citra
+image = cv2.imread("../imgs/tmt.jpg", cv2.IMREAD_COLOR)
+# lakukan histogram equalization
 image = normalisasiCitra(image)
 # lakukan resize
 image = cv2.resize(image, (target_width, target_height))
@@ -166,7 +165,7 @@ img_height, img_width, _ = image.shape
 # melakukan penghalusan citra
 blurred_img = gaussianfilter(image)
 # menlakukan penajaman citra
-shrap_img = sharpening(blurred_img)
+shrap_img = sharpening(blurred_img) 
 
 """
 PROCESSING IMAGE
