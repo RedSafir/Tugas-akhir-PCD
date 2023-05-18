@@ -11,7 +11,7 @@ target_height = 400
 largest_item = {}
 
 # Started
-image = cv2.imread("../imgs/tmt-setengah-2.jpg", cv2.IMREAD_COLOR)
+image = cv2.imread("../imgs/tmt-setengah-1.jpg", cv2.IMREAD_COLOR)
 
 # melakukan normalisasi
 image = cv2.normalize(image, None, 0, 255, cv2.NORM_MINMAX)
@@ -31,6 +31,7 @@ hsv = cv2.cvtColor(sharpened_image, cv2.COLOR_BGR2HSV)
 
 # lingkaran sesuai warna
 for key_color, value in upper.items():  
+    # Inisialisasi Strel dengan menggunakan cv2.MORPH_CROSS, (9, 9)
     kernel = np.ones((9,9),np.uint8)
     # melakukan masking terhadap warna
     mask = cv2.inRange(hsv, lower[key_color], upper[key_color])
