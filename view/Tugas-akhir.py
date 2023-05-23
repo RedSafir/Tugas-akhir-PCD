@@ -15,7 +15,7 @@ import imutils
 class ShowImage(QMainWindow):
     def __init__(self):
         super(ShowImage, self).__init__()
-        loadUi("GUI.ui", self)
+        loadUi("GUI_4.ui", self)
         self.Image = None
 
         # Action Button
@@ -27,7 +27,20 @@ class ShowImage(QMainWindow):
     INISIASI FUNCTION
 
     """
-    def normalisasiCitra(self, image):
+    def normalize_image(self, image):
+        # Menentukan nilai minimum dan maksimum piksel
+        min_value = np.min(image)
+        max_value = np.max(image)
+
+        # Melakukan normalisasi pada setiap piksel
+        normalized_image = (image - min_value) / (max_value - min_value) * 255
+
+        # Mengubah tipe data menjadi uint8
+        normalized_image = normalized_image.astype(np.uint8)
+
+        return normalized_image
+    
+    def normalisasiCitra_Cam(self, image):
         # Konversi citra ke float32
         image_float = image.astype(np.float32)
 
@@ -38,13 +51,13 @@ class ShowImage(QMainWindow):
         normalized_image = normalized_image.astype(np.uint8)
 
         return normalized_image
-    
+        
     def math_konvolusi(self, arrycitra, arrykarnel):
         # baca ukuran dimensi citra
-        H_citra, W_citra = arrycitra.shape
+        H_citra, W_citra = arrycitra.shape[:2]
 
         # baca ukuran dimensi karnel
-        H_karnel, W_karnel = arrykarnel.shape
+        H_karnel, W_karnel = arrykarnel.shape[:2]
 
         # meenutukan titik tengah
         H = H_karnel // 2
@@ -53,17 +66,56 @@ class ShowImage(QMainWindow):
         out = np.zeros((H_citra, W_citra))
 
         # menggeser karnel konvolusi
-        for i in range(H + 1, H_citra - H):
-            for j in range(W + 1, W_citra - W):
-                sum = 0
-                for k in range(-H, H):
-                    for l in range(-W, W):
-                        citra_value = arrycitra[i + k, j + l]
-                        kernel_value = arrykarnel[H + k, W + l]
-                        sum += citra_value * kernel_value
-                    out[i, j] = copy.copy(sum)
-        
+        for i in range(H, H_citra - H):
+            for j in range(W, W_citra - W):
+                citra_values = arrycitra[i - H:i + H + 1, j - W:j + W + 1]
+                sum = np.sum(citra_values * arrykarnel)
+                out[i, j] = sum
+                
         return out
+    
+    def math_konvolusi(self, image, kernel):
+        # Ambil dimensi gambar
+        height, width, channels = image.shape
+
+        # Ambil dimensi kernel
+        k_height, k_width = kernel.shape
+
+        # Tentukan offset titik tengah kernel
+        k_h_offset = k_height // 2
+        k_w_offset = k_width // 2
+
+        # Buat citra output dengan ukuran yang sama dengan citra input
+        output_image = np.zeros_like(image, dtype=np.float32)
+
+        # Looping melalui setiap piksel pada citra input
+        for h in range(k_h_offset, height - k_h_offset):
+            for w in range(k_w_offset, width - k_w_offset):
+                # Looping melalui setiap saluran warna (B, G, R)
+                for c in range(channels):
+                    # Inisialisasi jumlah konvolusi
+                    conv_sum = 0.0
+
+                    # Looping melalui setiap elemen dalam kernel
+                    for kh in range(k_height):
+                        for kw in range(k_width):
+                            # Ambil nilai piksel pada posisi yang sesuai dalam kernel dan citra input
+                            pixel_value = image[h - k_h_offset + kh, w - k_w_offset + kw, c]
+                            kernel_value = kernel[kh, kw]
+
+                            # Hitung konvolusi untuk saluran warna saat ini
+                            conv_sum += pixel_value * kernel_value
+
+                    # Simpan hasil konvolusi pada saluran warna saat ini
+                    output_image[h, w, c] = conv_sum
+
+        # Batasi nilai piksel dalam rentang 0-255
+        output_image = np.clip(output_image, 0, 255)
+
+        # Konversi citra kembali ke tipe data uint8
+        output_image = output_image.astype(np.uint8)
+
+        return output_image
 
     def gaussianfilter(self, image):   
         # buat kernel
@@ -74,48 +126,62 @@ class ShowImage(QMainWindow):
                                             [1, 5, 7, 5, 1]])
         
         # lakukan konvolusi dengan karnel dan image yang sudah di buat grey
-        hasil = cv2.filter2D(image, -1,  KERNEL)
+        hasil = self.math_konvolusi(image, KERNEL)
 
         return hasil
 
     def sharpening(self, image):
+
         KERNEL = np.array([ [-1, -1, -1],
                             [-1,  9, -1],
                             [-1, -1, -1]])
-        hasil = cv2.filter2D(image, -1,  KERNEL)
+        
+        hasil = self.math_konvolusi(image, KERNEL)
 
         return hasil
+    
+    def dilasi(self, image, kernel):
+        # Ambil dimensi gambar
+        height, width = image.shape
 
-    def dilasi(self, image, strel):
-        try:
-            # Mengkonversi citra menjadi grayscale
-            img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # Ambil dimensi kernel
+        k_height, k_width = kernel.shape
 
-            # Mengkonversi citra grayscale menjadi citra biner menggunakan cv2.threshold
-            _, image = cv2.threshold(img_gray, 127, 255, cv2.THRESH_BINARY)
-        except :
-            pass
+        # Tentukan offset titik tengah kernel
+        k_h_offset = k_height // 2
+        k_w_offset = k_width // 2
 
-        # Dilasi
-        img_dilated = cv2.dilate(image,strel)
+        # Buat citra output dengan ukuran yang sama dengan citra input
+        output_image = np.zeros_like(image)
 
-        return img_dilated
+        # Looping melalui setiap piksel pada citra input
+        for h in range(k_h_offset, height - k_h_offset):
+            for w in range(k_w_offset, width - k_w_offset):
+                # Periksa apakah ada piksel bernilai 255 dalam sekitar piksel saat ini
+                if np.any(image[h - k_h_offset : h + k_h_offset + 1, w - k_w_offset : w + k_w_offset + 1] == 255):
+                    # Set piksel saat ini pada citra output menjadi 255
+                    output_image[h, w] = 255
 
+        return output_image
+    
     def erosi(self, image, strel):
-        try :
-            # Mengkonversi citra menjadi grayscale
-            img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # mencari bentuk gambar
+        m,n= image.shape #Show the image
+        
+        # mencari nilai tengah dari strel
+        constant = (15-1)//2
+        
+        #Erosion without using inbuilt cv2 function for morphology
+        imgErode= np.zeros((m,n), dtype=np.uint8)
 
-            # Mengkonversi citra grayscale menjadi citra biner menggunakan cv2.threshold
-            _, image = cv2.threshold(img_gray, 127, 255, cv2.THRESH_BINARY)
-        except:
-            pass
-
-        # Erosi
-        img_erose = cv2.erode(image,strel)
-
-        return img_erose
-
+        for i in range(constant, m-constant):
+            for j in range(constant,n-constant):
+                temp = image[i-constant:i+constant+1, j-constant:j+constant+1]
+                product = temp*strel
+                imgErode[i,j] = np.min(product)
+        
+        return imgErode
+    
     def opening(self, image, strel):
         try:
             # Mengkonversi citra menjadi grayscale
@@ -191,10 +257,10 @@ class ShowImage(QMainWindow):
         # Started
         image = self.open()
 
-        self.displayImage(image, 1)
+        self.displayImage(copy.deepcopy(image), 1)
 
         # lakukan histogram equalization
-        image = self.normalisasiCitra(image)
+        image = self.normalize_image(image.copy())
         # lakukan resize
         image = cv2.resize(image, (target_width, target_height))
         # melakukan penghalusan citra
@@ -202,18 +268,17 @@ class ShowImage(QMainWindow):
         # menlakukan penajaman citra
         shrap_img = self.sharpening(blurred_img) 
 
-        self.displayImage(shrap_img, 2)
+        self.displayImage(shrap_img.copy(), 2)
 
         """
         PROCESSING IMAGE
 
-        """ 
-        # mengubah array citra yang semula BGR menjadi HSV
-        image_hsv = cv2.cvtColor(shrap_img, cv2.COLOR_BGR2HSV)
+        """
+        image_hsv = cv2.cvtColor(shrap_img.copy(), cv2.COLOR_BGR2HSV)
         # loop setiap warna
         for key_color, color in upper.items():
             # inisiasi STREL
-            STREL = np.ones((9,9),np.uint8)
+            STREL = np.ones((15,15),np.uint8)
             # melakukan masking terhadap warna
             mask = cv2.inRange(image_hsv, lower[key_color], upper[key_color])
             # melakukan morfologi OPENING
@@ -277,11 +342,11 @@ class ShowImage(QMainWindow):
                 (text_width, text_height), _ = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 1, 2)
                 text_x = cX - text_width // 2
                 text_y = cY + text_height // 2
-
-                # gambar conture berserta dengan text
-                cv2.circle(image, (int(X), int(Y)), int(radius), colors[key], 2)
-                cv2.putText(image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 1,(255, 255, 255), 2)
-                self.Image = image
+                if radius > 90:
+                    # gambar conture berserta dengan text
+                    cv2.circle(image, (int(X), int(Y)), int(radius), colors[key], 2)
+                    cv2.putText(image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 1,(255, 255, 255), 2)
+                    self.Image = image.copy()
             else:
                 print("object tidak terdefinisi")
         except :
@@ -297,7 +362,7 @@ class ShowImage(QMainWindow):
         INISIASI VARIABLE
 
         """
-        lower = {'matang':(0, 70, 30), 'mentah':(30, 50, 50), 'setengah matang':(10, 50 , 50)} 
+        lower = {'matang':(0, 50, 50    ), 'mentah':(30, 50, 20), 'setengah matang':(10, 50 , 50)} 
         upper = {'matang':(10,255,255), 'mentah':(50,255,255), 'setengah matang':(30,255,255)}
         colors = {'matang':(0,0,255), 'mentah':(0,255,0), 'setengah matang':(0,140,255)}
         target_width = 400
@@ -313,13 +378,16 @@ class ShowImage(QMainWindow):
             cv2.imshow("ORI", image)
 
             # lakukan histogram equalization
-            image = self.normalisasiCitra(image)
+            image = self.normalisasiCitra_Cam(image)
             # lakukan resize
-            image = cv2.resize(image, (target_width, target_height))
+            image = imutils.resize(image, width=target_width, height=target_height)
             # melakukan penghalusan citra
-            blurred_img = self.gaussianfilter(image)
+            blurred_img = cv2.GaussianBlur(image, (11, 11), 0)
             # menlakukan penajaman citra
-            shrap_img = self.sharpening(blurred_img) 
+            KERNEL = np.array([ [-1, -1, -1],
+                                [-1,  9, -1],
+                                [-1, -1, -1]])
+            shrap_img = cv2.filter2D(blurred_img, -1, KERNEL) 
 
             self.displayImage(shrap_img, 2)
             """
@@ -335,9 +403,9 @@ class ShowImage(QMainWindow):
                 # melakukan masking terhadap warna
                 mask = cv2.inRange(image_hsv, lower[key_color], upper[key_color])
                 # melakukan morfologi OPENING
-                mask = self.opening(mask, STREL)
+                mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, STREL)
                 # melakukan morfologi CLOSING
-                mask = self.closing(mask, STREL)
+                mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, STREL)
 
                 """
                 Setelah setiap warna di masking, munculkan hasilnya
@@ -396,10 +464,13 @@ class ShowImage(QMainWindow):
                     text_x = cX - text_width // 2
                     text_y = cY + text_height // 2
 
-                    # gambar conture berserta dengan text
-                    cv2.circle(image, (int(X), int(Y)), int(radius), colors[key], 2)
-                    cv2.putText(image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 1,(255, 255, 255), 2)
-                    self.Image = image
+                    if radius > 90:
+                        # gambar conture berserta dengan text
+                        cv2.circle(image, (int(X), int(Y)), int(radius), colors[key], 2)
+                        cv2.putText(image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 1,(255, 255, 255), 2)
+                        self.displayImage(image, 6)
+                    else :
+                        pass
                 else:
                     pass
             except :

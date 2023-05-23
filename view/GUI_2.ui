@@ -1,0 +1,1697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1260</width>
+    <height>804</height>
+   </rect>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>170</red>
+        <green>11</green>
+        <blue>11</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>249</red>
+        <green>239</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>94</green>
+        <blue>83</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>138</red>
+        <green>240</green>
+        <blue>107</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>170</red>
+        <green>11</green>
+        <blue>11</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>249</red>
+        <green>239</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>94</green>
+        <blue>83</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>138</red>
+        <green>240</green>
+        <blue>107</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>170</red>
+        <green>11</green>
+        <blue>11</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>249</red>
+        <green>239</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>138</red>
+        <green>240</green>
+        <blue>107</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>138</red>
+        <green>240</green>
+        <blue>107</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="font">
+   <font>
+    <family>NewsGoth BT</family>
+    <pointsize>11</pointsize>
+    <stylestrategy>PreferAntialias</stylestrategy>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Pendeteksi Kematangan Buah Tomat</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>291</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>450</y>
+      <width>291</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>160</y>
+      <width>281</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>430</y>
+      <width>281</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>110</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>News706 BT</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="text">
+     <string>Input Image</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>400</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>News706 BT</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="text">
+     <string>Pre Processing</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>160</y>
+      <width>271</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>300</y>
+      <width>281</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>70</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Poor Richard</family>
+      <pointsize>36</pointsize>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="text">
+     <string>Processing</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>240</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>News706 BT</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="text">
+     <string>Output</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>120</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>News706 BT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="text">
+     <string>Mask Matang</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>120</y>
+      <width>281</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>News706 BT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="text">
+     <string>Mask Setengah Matang</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>390</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>News706 BT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="text">
+     <string>Mask Mentah</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>10</y>
+      <width>231</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>NewsGoth BT</family>
+      <pointsize>11</pointsize>
+      <stylestrategy>PreferDefault</stylestrategy>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>231</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>211</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <widget class="QFrame" name="frame_4">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>10</y>
+         <width>211</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <widget class="QLabel" name="label_14">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>161</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>News706 BT</family>
+          <pointsize>26</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <stylestrategy>PreferDefault</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>KEL : A 1</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="frame_5">
+       <property name="geometry">
+        <rect>
+         <x>19</x>
+         <y>19</y>
+         <width>201</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+      </widget>
+      <zorder>frame_5</zorder>
+      <zorder>frame_4</zorder>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QOpenGLWidget" name="openGLWidget">
+    <property name="geometry">
+     <rect>
+      <x>-170</x>
+      <y>-30</y>
+      <width>1431</width>
+      <height>61</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_2">
+    <property name="geometry">
+     <rect>
+      <x>1080</x>
+      <y>150</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_3">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>160</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_4">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>170</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_5">
+    <property name="geometry">
+     <rect>
+      <x>1140</x>
+      <y>180</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_6">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>190</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_7">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>200</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_8">
+    <property name="geometry">
+     <rect>
+      <x>-20</x>
+      <y>30</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_12">
+    <property name="geometry">
+     <rect>
+      <x>1210</x>
+      <y>870</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_13">
+    <property name="geometry">
+     <rect>
+      <x>1150</x>
+      <y>840</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_14">
+    <property name="geometry">
+     <rect>
+      <x>1250</x>
+      <y>890</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_15">
+    <property name="geometry">
+     <rect>
+      <x>1230</x>
+      <y>880</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_16">
+    <property name="geometry">
+     <rect>
+      <x>1190</x>
+      <y>860</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_17">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>830</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_18">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>820</y>
+      <width>51</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_19">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>850</y>
+      <width>51</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_20">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>820</y>
+      <width>51</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_21">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>880</y>
+      <width>51</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>-10</y>
+      <width>751</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>News706 BT</family>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="text">
+     <string>PENDETEKSI  KEMATANGAN BUAH TOMAT</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_9">
+    <property name="geometry">
+     <rect>
+      <x>-40</x>
+      <y>50</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_10">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>620</y>
+      <width>51</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_11">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>610</y>
+      <width>51</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_22">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>630</y>
+      <width>51</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_23">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>600</y>
+      <width>51</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_30">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>610</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_31">
+    <property name="geometry">
+     <rect>
+      <x>1070</x>
+      <y>580</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_32">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>630</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_33">
+    <property name="geometry">
+     <rect>
+      <x>1150</x>
+      <y>620</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_34">
+    <property name="geometry">
+     <rect>
+      <x>1110</x>
+      <y>600</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_35">
+    <property name="geometry">
+     <rect>
+      <x>1090</x>
+      <y>590</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="CrossPattern">
+      <color alpha="255">
+       <red>211</red>
+       <green>12</green>
+       <blue>65</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="foregroundBrush">
+     <brush brushstyle="Dense1Pattern">
+      <color alpha="255">
+       <red>28</red>
+       <green>6</green>
+       <blue>193</blue>
+      </color>
+     </brush>
+    </property>
+    <property name="cacheMode">
+     <set>QGraphicsView::CacheNone</set>
+    </property>
+   </widget>
+   <zorder>graphicsView_8</zorder>
+   <zorder>graphicsView</zorder>
+   <zorder>graphicsView_9</zorder>
+   <zorder>label_15</zorder>
+   <zorder>frame</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_7</zorder>
+   <zorder>label_8</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_10</zorder>
+   <zorder>label_11</zorder>
+   <zorder>label_12</zorder>
+   <zorder>label_13</zorder>
+   <zorder>openGLWidget</zorder>
+   <zorder>graphicsView_2</zorder>
+   <zorder>graphicsView_3</zorder>
+   <zorder>graphicsView_4</zorder>
+   <zorder>graphicsView_5</zorder>
+   <zorder>graphicsView_6</zorder>
+   <zorder>graphicsView_7</zorder>
+   <zorder>graphicsView_12</zorder>
+   <zorder>graphicsView_13</zorder>
+   <zorder>graphicsView_14</zorder>
+   <zorder>graphicsView_15</zorder>
+   <zorder>graphicsView_16</zorder>
+   <zorder>graphicsView_17</zorder>
+   <zorder>graphicsView_18</zorder>
+   <zorder>graphicsView_19</zorder>
+   <zorder>graphicsView_20</zorder>
+   <zorder>graphicsView_21</zorder>
+   <zorder>graphicsView_10</zorder>
+   <zorder>graphicsView_11</zorder>
+   <zorder>graphicsView_22</zorder>
+   <zorder>graphicsView_23</zorder>
+   <zorder>graphicsView_30</zorder>
+   <zorder>graphicsView_31</zorder>
+   <zorder>graphicsView_32</zorder>
+   <zorder>graphicsView_33</zorder>
+   <zorder>graphicsView_34</zorder>
+   <zorder>graphicsView_35</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1260</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionSave"/>
+   </widget>
+   <widget class="QMenu" name="menuMode">
+    <property name="title">
+     <string>Mode</string>
+    </property>
+    <addaction name="actionCamera"/>
+    <addaction name="actionFoto"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuMode"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionCamera">
+   <property name="text">
+    <string>Camera</string>
+   </property>
+  </action>
+  <action name="actionLoad_Image">
+   <property name="text">
+    <string>Load Image</string>
+   </property>
+  </action>
+  <action name="actionFoto">
+   <property name="text">
+    <string>Foto</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
