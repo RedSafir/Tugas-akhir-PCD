@@ -3,15 +3,15 @@ import imutils
 import cv2
 import copy
 
-lower = {'matang':(0, 50, 20), 'mentah':(30, 100, 100), 'setengah matang':(20, 100, 100)} 
-upper = {'matang':(10,255,255), 'mentah':(80,255,255), 'setengah matang':(60,255,255)}
+lower = {'matang':(0, 70, 30), 'mentah':(30, 50, 50), 'setengah matang':(10, 50 , 50)} 
+upper = {'matang':(10,255,255), 'mentah':(50,255,255), 'setengah matang':(30,255,255)}
 colors = {'matang':(0,0,255), 'mentah':(0,255,0), 'setengah matang':(0,140,255)}
-target_width = 400
-target_height = 400
+target_width = 500
+target_height = 500
 largest_item = {}
 
 # Started
-image = cv2.imread("../imgs/tmt-mentah.jpg", cv2.IMREAD_COLOR)
+image = cv2.imread("../imgs/test/st_matang-5.jpg", cv2.IMREAD_COLOR)
 
 # melakukan normalisasi
 image = cv2.normalize(image, None, 0, 255, cv2.NORM_MINMAX)
@@ -68,7 +68,7 @@ try :
     num_sides = len(approx)
     cv2.drawContours(image, [approx], -1, (0, 255, 0), 2)
 
-    if num_sides > 10:
+    if num_sides > 5:
 
         # text berdasarkan key yang di dapat
         if key == "matang" :
@@ -87,9 +87,10 @@ try :
         text_x = cX - text_width // 2
         text_y = cY + text_height // 2
 
-        # gambar conture berserta dengan text
-        cv2.circle(image, (int(X), int(Y)), int(radius), colors[key], 2)
-        cv2.putText(image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 1,(255, 255, 255), 2)
+        if radius > 45 :
+            # gambar conture berserta dengan text
+            cv2.circle(image, (int(X), int(Y)), int(radius), colors[key], 2)
+            cv2.putText(image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 1,(255, 255, 255), 2)
     else:
         print("object bukanlah tomat")
 except :

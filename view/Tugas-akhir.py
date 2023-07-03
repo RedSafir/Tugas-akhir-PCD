@@ -119,11 +119,11 @@ class ShowImage(QMainWindow):
 
     def gaussianfilter(self, image):   
         # buat kernel
-        KERNEL = (1.0 / 345) * np.array([   [1, 5, 7, 5, 1],
+        KERNEL = (1.0 / 345) * np.array([   [1, 5,  7,  5,  1],
                                             [5, 20, 33, 20, 5],
                                             [7, 33, 55, 33, 7],
                                             [5, 20, 33, 20, 5],
-                                            [1, 5, 7, 5, 1]])
+                                            [1, 5,  7,   5, 1]])
         
         # lakukan konvolusi dengan karnel dan image yang sudah di buat grey
         hasil = self.math_konvolusi(image, KERNEL)
